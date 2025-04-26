@@ -5,7 +5,7 @@ public class recoilScript : MonoBehaviour
 {
     float recoilSpeed = 0.085f;
     float recoilFrame = 0;
-    private float zPos = 0.8f;
+    private float zPos = 0;
     public Transform gunTransform;
     bool recoil = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,7 +20,7 @@ public class recoilScript : MonoBehaviour
             float sinMod = Mathf.Sin(Mathf.PI * recoilFrame) * 0.5f;
             float rotSinMod = Mathf.Sin(Mathf.PI * recoilFrame) * 10f;
             //change newPos coords to match the position of the gun position, zPos should match the zCoord
-            Vector3 newPos = new Vector3(0.5f, -0.5f, zPos - sinMod);
+            Vector3 newPos = new Vector3(0, 0, zPos - sinMod);
             Vector3 newRot = new Vector3(-rotSinMod, 0, 0);
             recoilFrame += recoilSpeed;
             recoilSpeed *= 0.98f;
@@ -33,7 +33,7 @@ public class recoilScript : MonoBehaviour
                 recoilFrame = 0;
                 recoilSpeed = 0.085f;
                 //change newPos coords to match the position of the gun position, zPos should match the zCoord
-                gunTransform.localPosition = new Vector3(0.5f, -0.5f, 0.8f);
+                gunTransform.localPosition = new Vector3(0, 0, 0);
                 gunTransform.localEulerAngles = new Vector3(0, 0, 0);
             }
         }   
